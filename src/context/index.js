@@ -43,9 +43,9 @@ export function AppWrapper({ children }) {
       try {
         // Run both fetch calls concurrently
         const [playersRes, chipsRes, blindsRes] = await Promise.all([
-          fetch("http://localhost:3000/api/players"),
-          fetch("http://localhost:3000/api/chips"),
-          fetch("http://localhost:3000/api/blinds")
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/players`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chips`),
+          fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/blinds`)
         ]);
   
         const [playersData, chipsData, blindsData] = await Promise.all([
