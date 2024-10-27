@@ -6,7 +6,7 @@ import Podiums from "@/components/stats/podiums/Podiums"
 
 async function getPlayers(){
     try {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/players`)
+        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/players`)
         let data = await res.json()
         return data
     } catch (error) {
@@ -15,7 +15,7 @@ async function getPlayers(){
 }
 async function getHistory(){
     try {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/history`)
+        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/history`)
         let data = await res.json()
         
         return data
@@ -25,7 +25,7 @@ async function getHistory(){
 }
 async function getChips(){
     try {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/chips`)
+        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/chips`)
         let data = await res.json()
         return data
     } catch (error) {
@@ -35,10 +35,8 @@ async function getChips(){
 
 export default async function Stats() {
   
-    const [players, history, chips] = await Promise.all([
-        getPlayers(),
+    const [ history ] = await Promise.all([
         getHistory(),
-        getChips()
     ])
 
   return (
