@@ -6,7 +6,7 @@ import Podiums from "@/components/stats/podiums/Podiums"
 
 async function getHistory(){
     try {
-        let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/history`)
+        let res = await fetch(`http://${process.env.NEXT_PUBLIC_API_URL}/api/history`)
         let data = await res.json()
         
         return data
