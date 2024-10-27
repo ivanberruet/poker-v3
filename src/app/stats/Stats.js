@@ -4,29 +4,11 @@ import History from "@/components/stats/history/History"
 import Players from "@/components/stats/players/Players"
 import Podiums from "@/components/stats/podiums/Podiums"
 
-async function getPlayers(){
-    try {
-        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/players`)
-        let data = await res.json()
-        return data
-    } catch (error) {
-        console.log(error)
-      }
-}
 async function getHistory(){
     try {
-        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/history`)
+        let res = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/history`)
         let data = await res.json()
         
-        return data
-    } catch (error) {
-        console.log(error)
-      }
-}
-async function getChips(){
-    try {
-        let res = await fetch(`https://${process.env.NEXT_PUBLIC_API_URL}/api/chips`)
-        let data = await res.json()
         return data
     } catch (error) {
         console.log(error)
